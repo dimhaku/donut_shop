@@ -1,0 +1,22 @@
+<script>
+var donutShop = function(min, max, donuts) {
+  this.min = min;
+  this.max = max;
+  this.donuts = donuts;
+}
+
+var Downtown = new donutShop(8, 43, 4.5)
+var CapitolHill = new donutShop(4, 37, 2)
+var SouthLakeUnion = new donutShop(9, 23, 6.33)
+var Wedgewood = new donutShop(2, 28, 1.25)
+var Ballard = new donutShopt(8, 58, 3.75)
+
+donutShop.prototype.generateRandomCustomers = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+
+
+</script>
