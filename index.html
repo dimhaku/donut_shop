@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Donut Shops</title>
+</head>
+<body>
+
+<div class="div">
+  <h1 class="heading">Donuts</h1>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="13"><b>Number of Doughnuts Per Hour</b></th>
+      </tr>
+    </thead>
+    <tbody id="one">
+      <tr>
+        <th>Location/Hour</th>
+        <td>7:00</td>
+        <td>8:00</td>
+        <td>9:00</td>
+        <td>10:00</td>
+        <td>11:00</td>
+        <td>12:00</td>
+        <td>1:00</td>
+        <td>2:00</td>
+        <td>3:00</td>
+        <td>4:00</td>
+        <td>5:00</td>
+        <td>6:00</td>
+        <td>Total</td>
+      </tr>
+    </tbody>
+  </table>
+  <form id="shopForm">
+    <label for="shopName">Store Location: </label>
+    <input name="shopName" type="text"></br>
+    <label for="minCustomers">Min Customers per Hour: </label>
+    <input name="minCustomers" type="text"></br>
+    <label for="maxCustomers">Max Customers per Hour: </label>
+    <input name="maxCustomers" type="text"></br>
+    <label for="avgDonuts">Avg Donuts per Customer: </label>
+    <input name="avgDonuts" type="text"></br>
+
+    <button id="button" type="submit">Submit Store Info</button>
+  </form>
+</div>
+<script src="donut_shop.js"></script>
+
+
+</body>
+</html>
