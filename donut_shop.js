@@ -9,8 +9,8 @@ function donutShop(shopLocation, minCustomers, maxCustomers, avgDonuts, hoursOpe
   this.shopArray = [];
 }
 
-donutShop.prototype.generateRandom = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+donutShop.prototype.generateRandom = function(minCustomers, maxCustomers) {
+  return Math.floor(Math.random() * (maxCustomers - minCustomers + 1)) + minCustomers;
 };
 
 donutShop.prototype.calcSales = function() {
@@ -42,7 +42,7 @@ donutShop.prototype.start = function(){
   this.renderShop();
 };
 
-var hoursOpen = 11;
+var hoursOpen = 12;
 var shopArray = [];
 
 shopArray.push(downtown = new donutShop("Downtown", 8, 43, 4.5, hoursOpen));
@@ -70,3 +70,25 @@ var checkStores = function(shopName){
   }
 return ifTrue;
 };
+
+var theForm = document.getElementById('shopForm');
+var handleShopFormSubmit = function(){
+  event.preventDefault();
+  var shopName = event.target.shopName.value;
+  var newShop = new donutShop(shopName, event.target.minCustomers.value, event.target.maxCustomers.value, event.target.avgDonuts.value, hoursOpen);
+
+  if (checkStores(shopName)) {
+    newShop.calcSales();
+    shopArray[indexLocation] = newShop;
+    var replacementNodes = document.getElementById(shopName).childNodes;
+    for (var i=0; i < newShop.salesArray.length; i++){
+      replacementNodes[i+1].innerHTML = newShop.salesArray[i];
+    }
+  } else {
+    shopArray.push(newShop);
+    newShop.start();
+    console.log(shopArray);
+  }
+}
+
+theForm.addEventListener('submit', handleShopFormSubmit);
