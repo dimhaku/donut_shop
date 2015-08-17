@@ -9,8 +9,8 @@ function donutShop(shopLocation, minCustomers, maxCustomers, avgDonuts, hoursOpe
   this.shopArray = [];
 }
 
-donutShop.prototype.generateRandom = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+donutShop.prototype.generateRandom = function(minCustomers, maxCustomers) {
+  return Math.floor(Math.random() * (maxCustomers - minCustomers + 1)) + minCustomers;
 };
 
 donutShop.prototype.calcSales = function() {
@@ -42,7 +42,7 @@ donutShop.prototype.start = function(){
   this.renderShop();
 };
 
-var hoursOpen = 11;
+var hoursOpen = 12;
 var shopArray = [];
 
 shopArray.push(downtown = new donutShop("Downtown", 8, 43, 4.5, hoursOpen));
