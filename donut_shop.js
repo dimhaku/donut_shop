@@ -70,3 +70,25 @@ var checkStores = function(shopName){
   }
 return ifTrue;
 };
+
+var theForm = document.getElementById('shopForm');
+var handleShopFormSubmit = function(){
+  event.preventDefault();
+  var shopName = event.target.shopName.value;
+  var newShop = new donutShop(shopName, event.target.minCustomers.value, event.target.maxCustomers.value, event.target.avgDonuts.value, hoursOpen);
+
+  if (checkStores(shopName)) {
+    newShop.calcSales();
+    shopArray[indexLocation] = newShop;
+    var replacementNodes = document.getElementById(shopName).childNodes;
+    for (var i=0; i < newShop.salesArray.length; i++){
+      replacementNodes[i+1].innerHTML = newShop.salesArray[i];
+    }
+  } else {
+    shopArray.push(newShop);
+    newShop.start();
+    console.log(shopArray);
+  }
+}
+
+theForm.addEventListener('submit', handleShopFormSubmit);
