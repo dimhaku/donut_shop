@@ -41,3 +41,29 @@ form {
   border-color: red;
 }
 
+#space {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   transition: opacity .25s ease-in-out;
+   wtransition: opacity .25s ease-in-out;
+   }
+
+   #space:hover {
+      opacity: 0;
+      }
+.rainSeattle:hover
+{
+        wtransform: scale(1.5);
+        mtransform: scale(1.5);
+        transform: scale(1.5);
+}
+#drops {
+  animation-duration: 5s;
+  animation-name: raining;
+  height: 20%;
+  width: 20%;
+}
+@keyframes raining {
+  from {transform: translate(0);}
+  to {transform: translate(100%);}
+  }
